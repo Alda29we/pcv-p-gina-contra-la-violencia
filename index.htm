@@ -1,97 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Violencia Escolar</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
-  <!-- Fuente moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <!-- Iconos -->
-  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Prevención de la Violencia Escolar</h1>
-      <p>Informémonos, reflexionemos y construyamos un ambiente seguro y respetuoso en las escuelas.</p>
-      <a href="#introduccion" class="btn">Explorar</a>
-    </div>
+
+  <header>
+    <h1>Violencia Escolar</h1>
+    <p>Cómo identificarla, enfrentarla y prevenirla</p>
+    <nav id="nav">
+      <ul>
+        <li><a href="#presentacion">Inicio</a></li>
+        <li><a href="#info">Información</a></li>
+        <li><a href="#consecuencias">Consecuencias</a></li>
+        <li><a href="#cultura">Identidad Cultural</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <button id="modoBtn">Cambiar modo</button>
   </header>
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="#introduccion">Introducción</a></li>
-      <li><a href="#info">Información</a></li>
-      <li><a href="#estrategias">Estrategias</a></li>
-      <li><a href="#cultura">Identidad Cultural</a></li>
+  <section id="presentacion">
+    <h2>Presentación</h2>
+    <p>Este sitio web informa sobre la violencia escolar, sus causas, consecuencias y estrategias para combatirla.</p>
+    <button onclick="mostrarModal()">Ver Consejos</button>
+  </section>
+
+  <section id="info">
+    <h2>¿Qué es la Violencia Escolar?</h2>
+    <p>Es cualquier forma de maltrato físico, verbal o psicológico dentro del entorno educativo.</p>
+<ul>
+      <li>Bullying</li>
+      <li>Ciberacoso</li>
+      <li>Discriminación</li>
     </ul>
-  </nav>
+  </section>
 
-  <main>
-    <section id="introduccion" class="section">
-      <h2>Presentación del Trabajo</h2>
-      <p>
-        La violencia escolar es un fenómeno que impacta negativamente en el bienestar emocional y académico de los estudiantes. 
-        Este proyecto busca analizar sus causas, consecuencias y, sobre todo, ofrecer herramientas prácticas para afrontarla.
-      </p>
-    </section>
+  <section id="consecuencias">
+    <h2>Consecuencias</h2>
+    <ul>
+      <li>Ansiedad</li>
+      <li>Baja autoestima</li>
+      <li>Deserción escolar</li>
+    </ul>
+  </section>
 
-    <section id="info" class="section cards">
-      <h2>¿Qué es la Violencia Escolar?</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Acoso Escolar</h3>
-          <p>Conocido como bullying, es el maltrato repetido que afecta la autoestima y seguridad de los estudiantes.</p>
-        </div>
-        <div class="card">
-          <h3>Violencia Verbal</h3>
-          <p>Insultos, burlas y amenazas que dañan emocionalmente al estudiante.</p>
-        </div>
-        <div class="card">
-          <h3>Exclusión Social</h3>
-          <p>Cuando un estudiante es aislado o marginado del grupo de manera intencional.</p>
-        </div>
-        <div class="card">
-          <h3>Violencia Física</h3>
-          <p>Agresiones directas que ponen en riesgo la integridad del estudiante.</p>
-        </div>
-      </div>
-    </section>
+  <section id="cultura">
+    <h2>Diseño Cultural</h2>
+    <p>El diseño refleja diversidad y valores como respeto e inclusión.</p>
+  </section>
 
-    <section id="estrategias" class="section">
-      <h2>Estrategias para Afrontarla</h2>
-      <ol class="estrategias">
-        <li>Promover la comunicación entre padres, docentes y alumnos.</li>
-        <li>Implementar talleres de convivencia escolar.</li>
-        <li>Fomentar valores como el respeto y la empatía.</li>
-        <li>Detectar tempranamente los casos y brindar apoyo psicológico.</li>
-      </ol>
-    </section>
+  <section id="contacto">
+    <h2>Contáctanos</h2>
+    <form>
+      <label>Nombre:</label><br/>
+      <input type="text" required /><br/>
+      <label>Email:</label><br/>
+      <input type="email" required /><br/>
+      <label>Mensaje:</label><br/>
+      <textarea rows="4" required></textarea><br/>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
-    <section id="cultura" class="section">
-      <h2>Identidad Cultural</h2>
-      <p>
-        Reforzar la identidad cultural ayuda a construir comunidad, respeto y orgullo. 
-        Estos son algunos ejemplos de arte cultural que pueden integrarse en los espacios educativos.
-      </p>
-      <div class="galeria">
-        <img src="img/cultura1.jpg" alt="Arte cultural 1">
-        <img src="img/cultura2.jpg" alt="Arte cultural 2">
-        <img src="img/cultura3.jpg" alt="Arte cultural 3">
-        <img src="img/cultura4.jpg" alt="Arte cultural 4">
-      </div>
-    </section>
-  </main>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span onclick="cerrarModal()" class="close">&times;</span>
+      <h3>Consejos para prevenir la violencia escolar</h3>
+      <ul>
+        <li>Escucha activa</li>
+        <li>Promueve la empatía</li>
+        <li>Habla con tus docentes</li>
+      </ul>
+    </div>
+  </div>
 
   <footer>
-    <p>&copy; 2025 Proyecto Escolar - Prevención de la Violencia</p>
-    <div class="social">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
+    <p>&copy; 2025 Proyecto Contra la Violencia Escolar</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
