@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
       --primary-color: #1976D2;
@@ -101,6 +101,70 @@
 
     .dark-mode-btn:hover {
       transform: scale(1.1);
+    }
+
+    /* Sección de bienvenida a pantalla completa */
+    #welcome-screen {
+      height: 100vh;
+      width: 100%;
+      background-color: var(--primary-color);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    #welcome-screen h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    #welcome-screen p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+    
+    #welcome-screen img {
+        max-height: 50vh;
+        width: auto;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .scroll-down-arrow {
+      position: absolute;
+      bottom: 50px;
+      font-size: 2.5rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* Contenido principal oculto al inicio */
+    #main-content {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      transform: translateY(20px);
+    }
+
+    #main-content.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Sections */
@@ -242,130 +306,152 @@
   </style>
 </head>
 <body>
-  <!-- Barra de navegación -->
-  <header>
-    <nav class="navbar">
-      <h1 class="logo">Violencia Escolar</h1>
-      <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#consecuencias">Consecuencias</a></li>
-        <li><a href="#estrategias">Estrategias</a></li>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#contacto">Contáctanos</a></li>
-      </ul>
-      <button id="dark-mode-toggle" class="dark-mode-btn">
-        <span id="dark-icon">🌙</span>
-      </button>
-    </nav>
-  </header>
+  <div id="welcome-screen">
+    <img src="https://images.pexels.com/photos/5926393/pexels-photo-5926393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Niños de la mano" class="responsive-img">
+    <h1>¡Bienvenidos!</h1>
+    <p>Descubre todo sobre la prevención de la violencia escolar y cómo juntos podemos crear un entorno seguro y positivo.</p>
+    <a href="#main-content-start" class="scroll-down-arrow">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </div>
 
-  <!-- Inicio -->
-  <section id="inicio" class="section">
-    <div class="content">
-      <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Maestra ayudando a estudiante" class="responsive-img">
-      <div>
-        <h2>La violencia escolar es un problema que afecta a todos</h2>
-        <p>La violencia en el entorno educativo es un fenómeno complejo que trasciende las agresiones físicas. Abarca el acoso psicológico, la intimidación verbal y la exclusión social, impactando directamente en el desarrollo integral de estudiantes, docentes y personal administrativo. Abordar este problema es fundamental para garantizar un ambiente de aprendizaje seguro y propicio, donde la confianza y el respeto mutuo sean los pilares de la convivencia. Al profundizar en sus causas y efectos, podemos implementar estrategias más efectivas y sostenibles.</p>
+  <div id="main-content">
+    <!-- Barra de navegación -->
+    <header>
+      <nav class="navbar">
+        <h1 class="logo">Violencia Escolar</h1>
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#consecuencias">Consecuencias</a></li>
+          <li><a href="#estrategias">Estrategias</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#contacto">Contáctanos</a></li>
+        </ul>
+        <button id="dark-mode-toggle" class="dark-mode-btn">
+          <span id="dark-icon">🌙</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Punto de inicio del contenido principal para el scroll -->
+    <div id="main-content-start"></div>
+
+    <!-- Inicio -->
+    <section id="inicio" class="section">
+      <div class="content">
+        <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Maestra ayudando a estudiante" class="responsive-img">
+        <div>
+          <h2>La violencia escolar es un problema que afecta a todos</h2>
+          <p>La violencia en el entorno educativo es un fenómeno complejo que trasciende las agresiones físicas. Abarca el acoso psicológico, la intimidación verbal y la exclusión social, impactando directamente en el desarrollo integral de estudiantes, docentes y personal administrativo. Abordar este problema es fundamental para garantizar un ambiente de aprendizaje seguro y propicio, donde la confianza y el respeto mutuo sean los pilares de la convivencia. Al profundizar en sus causas y efectos, podemos implementar estrategias más efectivas y sostenibles.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Consecuencias -->
-  <section id="consecuencias" class="section">
-    <h2>Consecuencias de la Violencia Escolar</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://images.pexels.com/photos/5926456/pexels-photo-5926456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Apoyo psicológico">
-        <h3 class="card-title">Impacto Psicológico</h3>
-        <p>La violencia puede dejar cicatrices profundas a nivel emocional y psicológico. Las víctimas no solo experimentan ansiedad y depresión, sino que también pueden desarrollar baja autoestima, inseguridad y, en casos severos, trastornos de estrés postraumático. Estas secuelas no se limitan a la infancia, sino que pueden afectar sus relaciones y bienestar en la vida adulta.</p>
+    <!-- Consecuencias -->
+    <section id="consecuencias" class="section">
+      <h2>Consecuencias de la Violencia Escolar</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="https://images.pexels.com/photos/5926456/pexels-photo-5926456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Apoyo psicológico">
+          <h3 class="card-title">Impacto Psicológico</h3>
+          <p>La violencia puede dejar cicatrices profundas a nivel emocional y psicológico. Las víctimas no solo experimentan ansiedad y depresión, sino que también pueden desarrollar baja autoestima, inseguridad y, en casos severos, trastornos de estrés postraumático. Estas secuelas no se limitan a la infancia, sino que pueden afectar sus relaciones y bienestar en la vida adulta.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Concentración en el estudio">
+          <h3 class="card-title">Rendimiento Académico</h3>
+          <p>Un ambiente de hostilidad y miedo es incompatible con el aprendizaje. La preocupación constante por la seguridad interfiere con la capacidad de concentración, lo que se traduce en un bajo rendimiento escolar, ausentismo y, en ocasiones, el abandono de los estudios. La desmotivación y el rechazo a la escuela son señales claras de que el entorno no es seguro.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/3862635/pexels-photo-3862635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Amigos felices en la escuela">
+          <h3 class="card-title">Problemas Sociales</h3>
+          <p>El bullying y la agresión escolar deterioran las relaciones entre compañeros, creando un clima de desconfianza. Las víctimas pueden aislarse, perdiendo oportunidades de desarrollar habilidades sociales cruciales, mientras que los agresores pueden perpetuar patrones de comportamiento negativos. Esto impacta no solo la convivencia escolar, sino también su capacidad para interactuar en la sociedad de manera constructiva.</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Concentración en el estudio">
-        <h3 class="card-title">Rendimiento Académico</h3>
-        <p>Un ambiente de hostilidad y miedo es incompatible con el aprendizaje. La preocupación constante por la seguridad interfiere con la capacidad de concentración, lo que se traduce en un bajo rendimiento escolar, ausentismo y, en ocasiones, el abandono de los estudios. La desmotivación y el rechazo a la escuela son señales claras de que el entorno no es seguro.</p>
+    </section>
+
+    <!-- Estrategias -->
+    <section id="estrategias" class="section">
+      <h2>Estrategias de Prevención y Abordaje</h2>
+      <p>Para combatir la violencia, es crucial implementar un enfoque integral que involucre a toda la comunidad educativa.</p>
+      <img src="https://images.pexels.com/photos/3861976/pexels-photo-3861976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Trabajo en equipo en el aula">
+      <div class="cards">
+        <div class="card">
+          <h3 class="card-title">Promoción de Valores</h3>
+          <p>La educación en valores debe ser un componente transversal en el currículo escolar. A través de talleres, proyectos colaborativos y diálogos abiertos, se puede fomentar activamente la empatía y la resolución de conflictos de forma pacífica. Enseñar a los estudiantes a ponerse en el lugar del otro es la base para una convivencia sana y respetuosa.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Protocolos de Actuación</h3>
+          <p>Cada institución educativa necesita un protocolo de actuación claro y conocido por toda la comunidad. Este documento debe especificar los pasos a seguir ante un caso de violencia, asegurando una respuesta rápida y justa. Es fundamental que existan canales de denuncia seguros y confidenciales para que las víctimas y testigos se sientan protegidos al hablar.</p>
+        </div>
+        <div class="card">
+          <h3 class="card-title">Participación de la Familia</h3>
+          <p>La colaboración entre la escuela y las familias es vital. Organizar reuniones, talleres para padres y mantener una comunicación constante ayuda a crear un frente común contra la violencia. Los padres son aliados clave en la detección temprana de problemas y en el refuerzo de los valores de respeto y convivencia en casa.</p>
+        </div>
       </div>
-      <div class="card">
-        <img src="https://images.pexels.com/photos/3862635/pexels-photo-3862635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Amigos felices en la escuela">
-        <h3 class="card-title">Problemas Sociales</h3>
-        <p>El bullying y la agresión escolar deterioran las relaciones entre compañeros, creando un clima de desconfianza. Las víctimas pueden aislarse, perdiendo oportunidades de desarrollar habilidades sociales cruciales, mientras que los agresores pueden perpetuar patrones de comportamiento negativos. Esto impacta no solo la convivencia escolar, sino también su capacidad para interactuar en la sociedad de manera constructiva.</p>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="section">
+      <h2>Galería Cultural y Educativa</h2>
+      <div class="gallery">
+        <img src="https://images.pexels.com/photos/3862608/pexels-photo-3862608.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Estudiantes presentando un proyecto">
+        <img src="https://images.pexels.com/photos/3861970/pexels-photo-3861970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Estudiantes en el laboratorio">
+        <img src="https://images.pexels.com/photos/3862634/pexels-photo-3862634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Grupo de estudiantes diverso">
+        <img src="https://images.pexels.com/photos/3861975/pexels-photo-3861975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Estudiantes disfrutando un evento">
+        <img src="https://images.pexels.com/photos/3862599/pexels-photo-3862599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Estudiante levantando la mano">
+        <img src="https://images.pexels.com/photos/3861962/pexels-photo-3861962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Profesor interactuando con estudiantes">
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Estrategias -->
-  <section id="estrategias" class="section">
-    <h2>Estrategias de Prevención y Abordaje</h2>
-    <p>Para combatir la violencia, es crucial implementar un enfoque integral que involucre a toda la comunidad educativa.</p>
-    <img src="https://images.pexels.com/photos/3861976/pexels-photo-3861976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Trabajo en equipo en el aula">
-    <div class="cards">
-      <div class="card">
-        <h3 class="card-title">Promoción de Valores</h3>
-        <p>La educación en valores debe ser un componente transversal en el currículo escolar. A través de talleres, proyectos colaborativos y diálogos abiertos, se puede fomentar activamente la empatía y la resolución de conflictos de forma pacífica. Enseñar a los estudiantes a ponerse en el lugar del otro es la base para una convivencia sana y respetuosa.</p>
-      </div>
-      <div class="card">
-        <h3 class="card-title">Protocolos de Actuación</h3>
-        <p>Cada institución educativa necesita un protocolo de actuación claro y conocido por toda la comunidad. Este documento debe especificar los pasos a seguir ante un caso de violencia, asegurando una respuesta rápida y justa. Es fundamental que existan canales de denuncia seguros y confidenciales para que las víctimas y testigos se sientan protegidos al hablar.</p>
-      </div>
-      <div class="card">
-        <h3 class="card-title">Participación de la Familia</h3>
-        <p>La colaboración entre la escuela y las familias es vital. Organizar reuniones, talleres para padres y mantener una comunicación constante ayuda a crear un frente común contra la violencia. Los padres son aliados clave en la detección temprana de problemas y en el refuerzo de los valores de respeto y convivencia en casa.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Galería -->
-  <section id="galeria" class="section">
-    <h2>Galería Cultural y Educativa</h2>
-    <div class="gallery">
-      <img src="https://images.pexels.com/photos/3862608/pexels-photo-3862608.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Estudiantes presentando un proyecto">
-      <img src="https://images.pexels.com/photos/3861970/pexels-photo-3861970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Estudiantes en el laboratorio">
-      <img src="https://images.pexels.com/photos/3862634/pexels-photo-3862634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Grupo de estudiantes diverso">
-      <img src="https://images.pexels.com/photos/3861975/pexels-photo-3861975.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Estudiantes disfrutando un evento">
-      <img src="https://images.pexels.com/photos/3862599/pexels-photo-3862599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Estudiante levantando la mano">
-      <img src="https://images.pexels.com/photos/3861962/pexels-photo-3861962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Profesor interactuando con estudiantes">
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" class="section">
-    <h2>Contáctanos</h2>
-    <form class="contact-form">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+    <!-- Contacto -->
+    <section id="contacto" class="section">
+      <h2>Contáctanos</h2>
+      <form class="contact-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </div>
 
   <script>
-    // Script para el modo oscuro
     const toggleBtn = document.getElementById("dark-mode-toggle");
     const body = document.body;
     const darkIcon = document.getElementById("dark-icon");
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const mainContent = document.getElementById('main-content');
+    
+    // Al cargar la página, ocultar el contenido principal
+    window.onload = () => {
+      mainContent.style.display = 'none';
+    };
 
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      if (body.classList.contains("dark-mode")) {
-        darkIcon.textContent = "☀️";
-      } else {
-        darkIcon.textContent = "🌙";
-      }
+      darkIcon.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
     });
+
+    // Mostrar el contenido principal al hacer scroll
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        welcomeScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+        mainContent.classList.add('visible');
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
 
     // Validar el formulario de contacto (ejemplo)
     const contactForm = document.querySelector('.contact-form');
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      // En una aplicación real, aquí enviarías los datos a un servidor.
-      // Puedes usar una API de Firebase o un servicio de backend.
       console.log('Formulario enviado!');
-      alert('¡Gracias por contactarnos!');
+      console.log('¡Gracias por contactarnos!');
     });
   </script>
 </body>
