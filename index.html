@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -115,6 +115,12 @@
       justify-content: center;
       text-align: center;
       position: relative;
+      transition: opacity 1s ease-in-out; /* Transición para que se oculte */
+    }
+
+    #welcome-screen.fade-out {
+        opacity: 0;
+        pointer-events: none; /* Evita interacciones con el contenido oculto */
     }
 
     #welcome-screen h1 {
@@ -155,10 +161,10 @@
       }
     }
 
-    /* Contenido principal oculto al inicio */
+    /* Contenido principal oculto al inicio, ahora con opacidad */
     #main-content {
       opacity: 0;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
       transform: translateY(20px);
     }
 
@@ -425,9 +431,9 @@
     const welcomeScreen = document.getElementById('welcome-screen');
     const mainContent = document.getElementById('main-content');
     
-    // Al cargar la página, ocultar el contenido principal
+    // Al cargar la página, ocultamos la pantalla de bienvenida con opacidad
     window.onload = () => {
-      mainContent.style.display = 'none';
+      // El contenido principal ya está oculto por CSS con opacity: 0
     };
 
     toggleBtn.addEventListener("click", () => {
@@ -438,8 +444,7 @@
     // Mostrar el contenido principal al hacer scroll
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        welcomeScreen.style.display = 'none';
-        mainContent.style.display = 'block';
+        welcomeScreen.classList.add('fade-out');
         mainContent.classList.add('visible');
         window.removeEventListener('scroll', handleScroll);
       }
