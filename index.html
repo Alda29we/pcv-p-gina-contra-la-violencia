@@ -446,7 +446,9 @@
       if (window.scrollY > 50) {
         welcomeScreen.classList.add('fade-out');
         mainContent.classList.add('visible');
-        window.removeEventListener('scroll', handleScroll);
+      } else {
+        welcomeScreen.classList.remove('fade-out');
+        mainContent.classList.remove('visible');
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -461,4 +463,6 @@
   </script>
 </body>
 </html>
+
+
 
